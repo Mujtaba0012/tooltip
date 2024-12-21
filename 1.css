@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 10;
+    padding: 10;
+}
+
+nav {
+    background-color: #333;
+    padding: 35px 35px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 10;
+}
+
+.nav-item {
+    position: relative;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    position: absolute;
+    top: -25px; /* Adjusted for proper spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip Hover Effect */
+.nav-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-15px); /* Moves it slightly up */
+}
+
+/* Tooltip Animation (Fade and Slide) */
+.nav-item:hover .tooltip {
+    animation: fadeIn 0.3s ease-out, slideUp 0.3s ease-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(10px); /* Starts below */
+    }
+    to {
+        transform: translateX(-50%) translateY(-15px); /* Ends up */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 25px;
+    }
+
+    .nav-item {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .tooltip {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
